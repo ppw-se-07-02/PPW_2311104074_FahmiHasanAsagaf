@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Profil</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #111;
+        }
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            padding: 10px;
+            height: 200px;
+        }
+        .box {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>Header</header>
+
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="#">Produk</a>
+        <a href="#">Member</a>
+        <a href="admin.html">Login</a>
+    </nav>
+
+    <main>
+        <div class="box">Populer</div>
+        <div class="box">Konten Dinamis</div>
+        <div class="box">Iklan</div>
+    </main>
+
+    <footer>Footer</footer>
+</body>
+</html>
