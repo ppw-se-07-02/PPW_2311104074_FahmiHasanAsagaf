@@ -1,0 +1,142 @@
+<!-- Pemanggilan Bootstrap dengan CDN -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Guided Example</title>
+
+  <!-- CSS Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  >
+</head>
+
+<body class="bg-light">
+
+  <!-- Container Grid System -->
+  <div class="container my-5">
+    <h2 class="mb-4 text-primary">Contoh Grid System</h2>
+
+    <!-- Baris 1 -->
+    <div class="row mb-3">
+      <div class="col-12 col-md-8 bg-info text-white p-3 text-center">
+        .col-12 .col-md-8
+      </div>
+      <div class="col-6 col-md-4 bg-secondary text-white p-3 text-center">
+        .col-6 .col-md-4
+      </div>
+    </div>
+
+    <!-- Baris 2 -->
+    <div class="row mb-3">
+      <div class="col-6 col-md-4 bg-success text-white p-3 text-center">
+        .col-6 .col-md-4
+      </div>
+      <div class="col-6 col-md-4 bg-warning text-dark p-3 text-center">
+        .col-6 .col-md-4
+      </div>
+      <div class="col-6 col-md-4 bg-danger text-white p-3 text-center">
+        .col-6 .col-md-4
+      </div>
+    </div>
+
+    <!-- Baris 3 -->
+    <div class="row">
+      <div class="col-6 bg-primary text-white p-3 text-center">.col-6</div>
+      <div class="col-6 bg-dark text-white p-3 text-center">.col-6</div>
+    </div>
+  </div>
+
+  <!-- Tabel Hover Style -->
+  <div class="container my-5">
+    <h2 class="mb-3 text-primary">Tabel Hover Style</h2>
+    <table class="table table-hover table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nama Lengkap</th>
+          <th scope="col">Asal Kota</th>
+          <th scope="col">Umur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Budi Rojadi</td>
+          <td>Semarang</td>
+          <td>35 th</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Yulia Santi</td>
+          <td>Bekasi</td>
+          <td>32 th</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Fahri Abdilah</td>
+          <td>Medan</td>
+          <td>38 th</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Gambar Thumbnail & Fluid -->
+  <div class="container my-5">
+    <h2 class="mb-3 text-primary">Thumbnail & Fluid Image</h2>
+    <img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
+    <img src="images/cinqueterre.jpg" class="img-fluid" alt="Responsive image">
+  </div>
+
+  <!-- Tombol Bootstrap -->
+  <div class="container my-5">
+    <h2 class="mb-3 text-primary">Button Styles</h2>
+    <button type="button" class="btn btn-secondary mb-2">Secondary</button>
+    <button type="button" class="btn btn-primary btn-lg mb-2">Primary</button>
+    <button type="button" class="btn btn-success w-100 mb-2">Success (Full Width)</button>
+    <button type="button" class="btn btn-info btn-sm mb-2">Info</button>
+    <button type="button" class="btn btn-warning mb-2">Warning</button>
+    <button type="button" class="btn btn-danger mb-2">Danger</button>
+    <button type="button" class="btn btn-link mb-2">Link</button>
+  </div>
+
+  <!-- Form Horizontal -->
+  <div class="container my-5">
+    <h2 class="mb-3 text-primary">Horizontal Form</h2>
+    <form action="/action_page.php">
+      <div class="row mb-3">
+        <label for="uname" class="col-sm-2 col-form-label">Username:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="pwd" class="col-sm-2 col-form-label">Password:</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- JS Bootstrap -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+  </script>
+
+</body>
+</html>

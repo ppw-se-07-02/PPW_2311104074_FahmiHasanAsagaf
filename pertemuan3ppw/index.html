@@ -11,11 +11,12 @@
       padding: 0;
       background-color: #fafafa;
       color: #333;
+      overflow-x: hidden;
     }
 
     /* Header Ungu */
     .header-top {
-      background: linear-gradient(90deg, #d31996, #a31770);
+      background: linear-gradient(90deg, #035385, #2177ef);
       color: white;
       padding: 12px 20px;
       font-weight: bold;
@@ -39,10 +40,10 @@
     }
 
     .nav-bar a:hover {
-      color: #d31996;
+      color: #6396da;
     }
 
-    /* Banner + Slideshow */
+    /* Banner */
     .banner {
       text-align: center;
       background: linear-gradient(to right, #f7f0ff, #fff);
@@ -53,7 +54,7 @@
 
     .banner h1 {
       font-size: 42px;
-      color: #b41785;
+      color: #5aa1f7;
       margin-bottom: 5px;
     }
 
@@ -63,7 +64,7 @@
       margin-top: 0;
     }
 
-    /* Slideshow container */
+    /* Slideshow */
     .slideshow-container {
       max-width: 900px;
       position: relative;
@@ -82,7 +83,6 @@
       vertical-align: middle;
     }
 
-    /* Fade animation */
     .fade {
       animation-name: fade;
       animation-duration: 1.2s;
@@ -93,7 +93,7 @@
       to {opacity: 1;}
     }
 
-    /* Produk & Rekomendasi layout */
+    /* Produk Layout */
     .main {
       display: flex;
       justify-content: center;
@@ -119,6 +119,7 @@
       padding: 15px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       transition: transform 0.3s;
+      cursor: pointer;
     }
 
     .produk:hover {
@@ -136,10 +137,73 @@
     }
 
     .produk p {
-      color: #d31996;
+      color: #80c3f0;
       font-weight: bold;
     }
 
+    /* Panel detail di samping kanan */
+    .detail-panel {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+      padding: 20px;
+      transition: right 0.4s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .detail-panel.active {
+      right: 0;
+    }
+
+    .detail-panel img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .detail-panel h2 {
+      margin-top: 0;
+      color: #008df9;
+    }
+
+    .detail-panel p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      color: #a31770;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Overlay gelap */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Rekomendasi */
     .rekomendasi {
       flex: 1;
       background-color: #fff;
@@ -151,7 +215,7 @@
     }
 
     .rekomendasi h3 {
-      color: #d31996;
+      color: #057ae2;
       margin-bottom: 10px;
     }
 
@@ -176,7 +240,7 @@
 
     footer h4 {
       margin-bottom: 10px;
-      color: #d31996;
+      color: #02abf9;
     }
 
     footer a {
@@ -202,8 +266,8 @@
   </div>
 
   <div class="banner">
-    <h1>LucianStore</h1>
-    <p>Toko Online Game & Merchandise</p>
+    <h1>Lucian Store</h1>
+    <p>Toko Online Game</p>
   </div>
 
   <!-- Slideshow -->
@@ -233,25 +297,25 @@
       slideIndex++;
       if (slideIndex > slides.length) {slideIndex = 1;}
       slides[slideIndex-1].style.display = "block";
-      setTimeout(showSlides, 4000); // Ganti gambar tiap 4 detik
+      setTimeout(showSlides, 4000);
     }
   </script>
 
   <div class="main">
     <div class="produk-container">
-      <div class="produk">
+      <div class="produk" id="produk1">
         <img src="images/produk1.png" alt="Produk 1">
-        <h4>Produk 1</h4>
+        <h4>Seal</h4>
         <p>Rp 100.000</p>
       </div>
       <div class="produk">
         <img src="images/produk2.png" alt="Produk 2">
-        <h4>Produk 2</h4>
+        <h4>Queen Bee</h4>
         <p>Rp 120.000</p>
       </div>
       <div class="produk">
         <img src="images/produk3.png" alt="Produk 3">
-        <h4>Produk 3</h4>
+        <h4>Brontosaurus</h4>
         <p>Rp 95.000</p>
       </div>
       <div class="produk">
@@ -273,11 +337,47 @@
 
     <aside class="rekomendasi">
       <h3>Rekomendasi</h3>
-      <img src="images/produk4.png" alt="Baju Batik Coklat">
-      <h4>Baju Batik Coklat</h4>
+      <img src="images/produk4.png" alt="Brontosaurus">
+      <h4>Brontosaurus</h4>
       <p>Rp 369.000</p>
     </aside>
   </div>
+
+  <!-- Overlay dan Panel Detail -->
+  <div class="overlay" id="overlay"></div>
+
+  <div class="detail-panel" id="detailPanel">
+    <span class="close-btn" id="closeDetail">&times;</span>
+    <img src="images/produk1.png" alt="Produk 1 Besar">
+    <h2>Produk 1</h2>
+    <p><strong>Harga:</strong> Rp 100.000</p>
+    <p><strong>Deskripsi:</strong> Produk 1 adalah seal / pet dari game grow a garden roblox dari LucianStore, cocok untuk penggemar game dan kolektor. Dengan Tampilan Khusus.</p>
+  </div>
+
+  <script>
+    const produk1 = document.getElementById('produk1');
+    const detailPanel = document.getElementById('detailPanel');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeDetail');
+
+    // Buka panel
+    produk1.addEventListener('click', () => {
+      detailPanel.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    // Tutup panel
+    closeBtn.addEventListener('click', () => {
+      detailPanel.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Klik overlay untuk tutup
+    overlay.addEventListener('click', () => {
+      detailPanel.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
 
   <footer>
     <div>
@@ -287,8 +387,8 @@
     </div>
     <div>
       <h4>CATEGORIES</h4>
-      <p><a href="#">Batik Lengan Panjang</a></p>
-      <p><a href="#">Batik Lengan Pendek</a></p>
+      <p><a href="#">Game Grow A Garden</a></p>
+      <p><a href="#">Game Fish it</a></p>
     </div>
     <div>
       <h4>FOLLOW US</h4>
