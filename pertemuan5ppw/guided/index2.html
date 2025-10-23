@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // $(document).ready(function() {
+    //   var hobi = ["Membaca", "Coding", "Musik"];
+    //   $("#hasil").text("Hobi favorit: " + hobi[1]);
+    // });
+
+    // $(document).ready(function() {
+    //   var a = 10;
+    //   var b = 5;
+
+    //   var tambah = a + b;
+    //   var kurang = a - b;
+    //   var kali = a * b;
+    //   var bagi = a / b;
+
+    //   $("#hasil").html(
+    //     "Hasil Penjumlahan: " + tambah + "<br>" +
+    //     "Hasil Pengurangan: " + kurang + "<br>" +
+    //     "Hasil Perkalian: " + kali + "<br>" +
+    //     "Hasil Pembagian: " + bagi
+    //   );
+    // });
+
+    $(document).ready(function() {
+      var nilai = 75;
+      var hasil = "";
+
+      if (nilai >= 80) {
+        hasil = "Nilai Anda A (Sangat Baik)";
+      } else if (nilai >= 70) {
+        hasil = "Nilai Anda B (Baik)";
+      } else if (nilai >= 60) {
+        hasil = "Nilai Anda C (Cukup)";
+      } else {
+        hasil = "Nilai Anda D (Kurang)";
+      }
+
+      $("#hasil").text(hasil);
+    });
+
+
+  </script>
+</head>
+<body>
+    <h2>contoh if else di jQuery</h2>
+  <p id="hasil"></p>
+</body>
+</html>

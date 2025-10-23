@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum JavaScript & jQuery</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Tipe Data Pada JavaScript</h1>
+    <p id="outputTipeData"></p>
+    <p id="test"></p> 
+
+    <h1>Array Pada JavaScript</h1>
+    <p id="array"></p>
+    <p id="array2"></p>
+
+    <h1>Percabangan Pada JavaScript</h1>
+    <p id="outputPercabangan"></p>
+
+    <h1>Perulangan While Pada JavaScript</h1>
+    <p id="whileLoop"></p>
+
+    <h1>Object Pada JavaScript</h1>
+    <p id="object"></p>
+
+    <h1>Nested Object</h1>
+    <p id="outputObject"></p>
+
+    <h1>Prototype pada JavaScript</h1>
+    <p id="outputTruk"></p>
+
+    <h1>Fungsi Pada JavaScript</h1>
+    <p id="hasilTambah"></p>
+    <p id="hasilKali"></p>
+
+    <h1>Contoh jQuery Dasar</h1>
+    <p id="hasil"></p>
+
+    <h1>jQuery If-Else</h1>
+    <p id="nilai"></p>
+
+    <h1>Efek Hide/Show</h1>
+    <p class="paragraf">Ini adalah paragraf yang bisa disembunyikan.</p>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+
+    <h1>Efek Animasi</h1>
+    <p>Click tombol untuk melihat animasi:</p>
+    <button id="animate">Start Animation</button>
+    <div style="background:#98bf21; height:100px; width:100px; position:absolute;"></div>
+
+<script>
+
+// TIPE DATA
+var angka = 42;
+var teks = "Ahmad Ruslan";
+var benar = true;
+var salah = false;
+var kosong = null;
+var tidakDidefinisikan;
+var daftar = ["apel", "pisang", "mangga"];
+var tanggal = new Date();
+var pola = /[A-Z]/;
+var orang = { nama: "Ruslan", umur: 21 };
+
+var hasil = "";
+hasil += "<b>Number:</b> " + angka + "<br>";
+hasil += "<b>String:</b> " + teks + "<br>";
+hasil += "<b>Boolean 1:</b> " + benar + "<br>";
+hasil += "<b>Boolean 0:</b> " + salah + "<br>";
+hasil += "<b>Null:</b> " + kosong + "<br>";
+hasil += "<b>Undefined:</b> " + tidakDidefinisikan + "<br>";
+hasil += "<b>Array:</b> " + daftar.join(", ") + "<br>";
+hasil += "<b>Date:</b> " + tanggal + "<br>";
+hasil += "<b>RegExp:</b> " + pola + ", Ini Sirsak = " + pola.test("Sirsak") + "<br>";
+hasil += "<b>Object:</b> nama = " + orang.nama + ", umur = " + orang.umur + "<br>";
+document.getElementById("outputTipeData").innerHTML = hasil;
+
+
+// VARIABEL DAN ARRAY
+
+var nama = "Dewi";
+var umur = 21;
+var isMahasiswa = true;
+document.getElementById("test").innerHTML =
+"Nama: " + nama + "<br>" +
+"Umur: " + umur + "<br>" +
+"Mahasiswa: " + isMahasiswa;
+
+var data = ["Satu", 2, true, "Tiga", 4];
+var arr2 = [["satu", "dua"], ["tiga", "empat"]];
+document.getElementById("array").innerHTML =
+"Elemen pertama: " + data[0] + "<br>" +
+"Elemen ketiga: " + data[2] + "<br>" +
+"Isi arr2: " + arr2 + "<br>" +
+"Elemen arr2[0][1]: " + arr2[0][1] + "<br>" +
+data[10];
+
+var data2 = ["pisang", "apel", "mangga"];
+document.getElementById("array2").innerHTML =
+"Isi awal array: " + data2 + "<br>" +
+"Panjang awal array: " + data2.length + "<br><br>" +
+"Menambahkan durian (push): " + data2.push("durian") + "<br>" +
+"Isi array setelah push: " + data2 + "<br>" +
+"Menghapus elemen terakhir (pop): " + data2.pop() + "<br>" +
+"Isi array setelah pop: " + data2 + "<br>";
+
+
+// PERCABANGAN
+
+var pendidikan = "S2";
+var gelar;
+if (pendidikan === "S1") {
+  gelar = "Sarjana";
+} else if (pendidikan === "S2") {
+  gelar = "Master";
+} else if (pendidikan === "S3") {
+  gelar = "Doktor";
+} else {
+  gelar = "Tidak diketahui";
+}
+document.getElementById("outputPercabangan").innerHTML =
+"Sekarang kamu: " + pendidikan + ", gelar kamu: " + gelar;
+
+
+// PERULANGAN WHILE
+
+var text1 = "";
+var i = 0;
+while (i < 3) {
+  text1 += "Perulangan while ke-" + i + "<br>";
+  i++;
+}
+document.getElementById("whileLoop").innerHTML = text1;
+
+
+// OBJECT
+
+var namaObject = { key1: "nilai1", key2: "nilai2", key3: "nilai3" };
+var objek_kosong = {};
+var mobil = {
+  "warna-badan": "merah",
+  "nomor-polisi": "BK1234AB",
+  merk: "Toyota",
+  tahun: 2020
+};
+document.getElementById("object").innerHTML =
+"Merk mobil: " + mobil.merk + "<br>" +
+"Warna badan: " + mobil["warna-badan"] + "<br>" +
+"Nomor polisi: " + mobil["nomor-polisi"] + "<br>" +
+"Tahun: " + mobil.tahun + "<br>";
+
+
+// NESTED OBJECT
+
+var jadwal = {
+  platform: 34,
+  telah_berangkat: false,
+  asal: { kode_kota: "MDN", nama_kota: "Medan", waktu: "2023-12-29 14:00" },
+  tujuan: { kode_kota: "JKT", nama_kota: "Jakarta", waktu: "2023-12-29 17:30" }
+};
+document.getElementById("outputObject").innerHTML =
+"Platform: " + jadwal.platform + "<br>" +
+"Asal: " + jadwal.asal.nama_kota + "<br>" +
+"Tujuan: " + jadwal.tujuan.nama_kota + "<br>" +
+"Waktu Berangkat: " + jadwal.asal.waktu;
+
+
+// PROTOTYPE
+
+var truk = Object.create(mobil);
+truk["warna-badan"] = "kuning";
+document.getElementById("outputTruk").innerHTML =
+"Warna Truk: " + truk["warna-badan"] + "<br>" +
+"Nomor Polisi Truk: " + truk["nomor-polisi"];
+
+
+// FUNCTION
+
+function tambah(a, b) {
+  return a + b;
+}
+var kali = function (a, b) {
+  return a * b;
+};
+document.getElementById("hasilTambah").innerHTML =
+"tambah(3,5) = " + tambah(3,5) + "<br>" +
+"tambah(5,2) = " + tambah(5,2);
+document.getElementById("hasilKali").innerHTML =
+"kali(4,5) = " + kali(4,5);
+
+
+// jQUERY
+
+$(document).ready(function() {
+  // 1. Text
+  var hobi = ["Membaca", "Olahraga", "Ngoding"];
+  $("#hasil").text("Hobi kedua saya: " + hobi[1]);
+
+  // 2. If-Else
+  var nilai = 75;
+  if (nilai >= 70) {
+    $("#nilai").text("Selamat, kamu lulus!").css("color", "green");
+  } else {
+    $("#nilai").text("Maaf, kamu belum lulus.").css("color", "red");
+  }
+
+  // 3. Hide/Show
+  $("#hide").click(function() { $(".paragraf").hide(); });
+  $("#show").click(function() { $(".paragraf").show(); });
+
+  // 4. Animasi
+  $("#animate").click(function() {
+    $("div").animate({ height: 'toggle' });
+  });
+});
+</script>
+</body>
+</html>
