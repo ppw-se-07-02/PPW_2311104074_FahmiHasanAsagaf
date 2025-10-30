@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Balance Store</title>
+
+    <!-- Bootstrap & jQuery -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        body {
+            background-color: #f5f6fa;
+            font-family: "Poppins", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* HEADER */
+        .navbar {
+            background-color: #2f3640;
+        }
+
+        body {
+            padding-top: 70px;
+            /* sesuaikan dengan tinggi navbar */
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        /*  Banner Carousel */
+        .carousel-inner img {
+            height: 778px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .carousel-inner img {
+                height: 160px;
+            }
+
+            .carousel-caption h3 {
+                font-size: 1rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Search */
+        .search-bar {
+            max-width: 500px;
+            margin: 25px auto;
+        }
+
+        /* Rekomendasi */
+        .recommend-box {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .recommend-box h5 {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .recommend-card img {
+            height: 100px;
+            object-fit: contain;
+        }
+
+        /* Produk (Card Grid) */
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            height: 180px;
+            object-fit: contain;
+            background: #fff;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2f3640;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #2f3640;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">👟 New Balance Store</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Produk</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container py-4">
+        <!-- Carousel Banner -->
+        <div id="mainCarousel" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel" data-aos="fade-down">
+            <div class="carousel-inner rounded-3 shadow">
+
+                <!-- Slide 1: Promo Diskon -->
+                <div class="carousel-item active">
+                    <img src="images/model.jpg" class="d-block w-100" alt="Banner Diskon">
+                    <div class="carousel-caption d-block bg-dark bg-opacity-50 rounded-3 p-3">
+                        <h3 class="fw-bold text-white">💥 Diskon 20% untuk Pembelian Pertama!</h3>
+                        <p class="text-light mb-0">Gunakan kode promo <strong>NBNEW20</strong> hanya di New Balance
+                            Store</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Produk Terlaris -->
+                <div class="carousel-item">
+                    <img src="images/model2.jpg" class="d-block w-100" alt="Produk Terlaris">
+                    <div class="carousel-caption d-block bg-dark bg-opacity-50 rounded-3 p-3">
+                        <h3 class="fw-bold text-white">👟 New Balance 574</h3>
+                        <p class="text-light mb-0">Produk terlaris 2025 — nyaman & bergaya untuk semua aktivitas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontrol Carousel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+
+        <!-- Search Bar -->
+        <div class="search-bar input-group mb-4" data-aos="fade-down">
+            <input type="text" id="search" class="form-control shadow-sm" placeholder="Cari produk...">
+        </div>
+
+        <!-- 2 Kolom Utama -->
+        <div class="row">
+            <!-- Rekomendasi -->
+            <div class="col-md-3 mb-4" data-aos="fade-right">
+                <div class="recommend-box">
+                    <h5>Rekomendasi</h5>
+                    <div class="recommend-card text-center mb-3">
+                        <img src="images/Nb2002r.jpg" class="img-fluid mb-2" alt="NB 2002R">
+                        <p class="fw-bold mb-1">New Balance 2002R</p>
+                        <small class="text-muted d-block mb-2">Rp2.100.000</small>
+                        <a href="detail.html?name=New Balance 2002R&image=images/Nb2002r.jpg&price=Rp2.100.000"
+                            class="btn btn-dark btn-sm w-100">Lihat Detail</a>
+                    </div>
+                    <div class="recommend-card text-center">
+                        <img src="images/Nb574.jpg" class="img-fluid mb-2" alt="NB 574">
+                        <p class="fw-bold mb-1">New Balance 574</p>
+                        <small class="text-muted d-block mb-2">Rp1.600.000</small>
+                        <a href="detail.html?name=New Balance 574&image=images/Nb574.jpg&price=Rp1.600.000"
+                            class="btn btn-dark btn-sm w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konten Daftar Produk -->
+            <div class="col-md-9" data-aos="fade-left">
+                <div class="row" id="productList"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 New Balance Store — by Fahmi Hasan Asagaf (2311104074)
+    </footer>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const products = [
+            { name: "New Balance 2002R", image: "images/Nb2002r.jpg", price: "Rp2.100.000" },
+            { name: "New Balance 530R", image: "images/Nb530r.jpg", price: "Rp1.800.000" },
+            { name: "New Balance 574", image: "images/Nb574.jpg", price: "Rp1.600.000" },
+            { name: "New Balance 327", image: "images/Nb327.jpg", price: "Rp1.900.000" },
+            { name: "NB 991v2 Stone Island", image: "images/nb991v2stoneisland.jpg", price: "Rp3.500.000" },
+        ];
+
+        function renderProducts(list) {
+            $("#productList").html("");
+            list.forEach((p, i) => {
+                $("#productList").append(`
+          <div class="col-12 col-sm-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="${i * 100}">
+            <div class="card">
+              <img src="${p.image}" class="card-img-top" alt="${p.name}">
+              <div class="card-body text-center">
+                <h5 class="card-title">${p.name}</h5>
+                <p class="card-text text-muted">${p.price}</p>
+                <a href="detail.html?name=${encodeURIComponent(p.name)}&image=${encodeURIComponent(p.image)}&price=${encodeURIComponent(p.price)}" class="btn btn-primary w-100">Lihat Detail</a>
+              </div>
+            </div>
+          </div>
+        `);
+            });
+        }
+
+        $(document).ready(() => {
+            renderProducts(products);
+
+            $("#search").on("keyup", function () {
+                const keyword = $(this).val().toLowerCase();
+                const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+                renderProducts(filtered);
+            });
+
+            // Inisialisasi animasi AOS
+            AOS.init({ once: true, duration: 700 });
+        });
+    </script>
+</body>
+
+</html>
