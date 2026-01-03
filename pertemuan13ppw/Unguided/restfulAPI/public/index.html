@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Mahasiswa</title>
+</head>
+<body>
+  <h2>Input Mahasiswa</h2>
+
+  <input id="nama" placeholder="Nama"><br>
+  <input id="nim" placeholder="NIM"><br>
+  <input id="jurusan" placeholder="Jurusan"><br>
+  <input id="email" placeholder="Email"><br>
+  <button onclick="tambah()">Tambah</button>
+
+  <h2>Daftar Mahasiswa</h2>
+  <ul id="data"></ul>
+
+<script>
+function loadData() {
+  fetch("/mahasiswa")
+    .then(res => res.json())
+    .then(data => {
+      const list = document.getElementById("data");
+      list.innerHTML = "";
+      data.forEach(m => {
+        list.innerHTML += `<li>${m.nama} - ${m.nim}</li>`;
+      });
+    });
+}
+
+function tambah() {
+  fetch("/mahasiswa", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      nama: nama.value,
+      nim: nim.value,
+      jurusan: jurusan.value,
+      email: email.value
+    })
+  }).then(() => loadData());
+}
+
+loadData();
+</script>
+</body>
+</html>
